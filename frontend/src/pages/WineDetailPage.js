@@ -63,7 +63,7 @@ Structured yet elegant, this wine rewards patience. While approachable in its yo
     name: "Rosé",
     year: "2024",
     tagline: "Fresh. Vibrant. Effortlessly Refined.",
-    heroImage: "https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?w=1920&q=80",
+    heroImage: "https://images.unsplash.com/photo-1635232822657-3dcae6c7e715?w=1920&q=80",
     description: "Pale salmon in colour with delicate notes of wild strawberry, citrus blossom, and a crisp, mineral finish.",
     longDescription: `Our Rosé is crafted using the traditional Provençal method of direct pressing, resulting in a wine of pale elegance and refined character. Made primarily from Grenache with a small portion of Shiraz, it captures the essence of Australian summer while maintaining the sophistication expected of Cape Jervis Wine.
 
