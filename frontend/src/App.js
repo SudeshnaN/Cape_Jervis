@@ -331,6 +331,7 @@ const WinesSection = () => {
   const wines = [
     {
       name: "Shiraz",
+      slug: "shiraz",
       year: "2022",
       description:
         "Medium-bodied and composed, with dark berry fruit, subtle spice, and fine tannins. A structured wine that reflects both maritime influence and varietal clarity.",
@@ -338,7 +339,26 @@ const WinesSection = () => {
       pairing: "Lamb, Aged Cheeses, Dark Chocolate",
     },
     {
+      name: "Cabernet Sauvignon",
+      slug: "cabernet-sauvignon",
+      year: "2021",
+      description:
+        "Elegant and structured, with cassis, herbal notes, and refined tannins. Crafted for balance and cellaring potential.",
+      notes: "Cassis, Herbal Notes, Refined Tannins",
+      pairing: "Beef, Game Meats, Aged Cheddar",
+    },
+    {
+      name: "Rosé",
+      slug: "rose",
+      year: "2024",
+      description:
+        "Pale salmon in colour with delicate notes of wild strawberry, citrus blossom, and a crisp, mineral finish.",
+      notes: "Wild Strawberry, Citrus Blossom, Mineral",
+      pairing: "Fresh Seafood, Mediterranean Salads",
+    },
+    {
       name: "Chardonnay",
+      slug: "chardonnay",
       year: "2023",
       description:
         "Fresh and precise, showing citrus, stone fruit, and restrained oak. Balanced acidity and texture lead to a clean, extended finish.",
@@ -346,12 +366,13 @@ const WinesSection = () => {
       pairing: "Seafood, Poultry, Creamy Pasta",
     },
     {
-      name: "Cabernet Sauvignon",
-      year: "2021",
+      name: "Merlot",
+      slug: "merlot",
+      year: "2022",
       description:
-        "Elegant and structured, with cassis, herbal notes, and refined tannins. Crafted for balance and cellaring potential.",
-      notes: "Cassis, Herbal Notes, Refined Tannins",
-      pairing: "Beef, Game Meats, Aged Cheddar",
+        "Velvety and approachable, with plum, cherry, and hints of chocolate. Soft tannins and a supple texture make this wine immediately enjoyable.",
+      notes: "Plum, Cherry, Chocolate",
+      pairing: "Duck, Pork, Mushroom Dishes",
     },
   ];
 
