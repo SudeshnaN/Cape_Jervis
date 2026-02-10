@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "@/App.css";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
 import { Wine, Leaf, Globe, MapPin, Mail, Phone, ArrowRight, Menu, X } from "lucide-react";
@@ -10,6 +11,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "./components/ui/dialog";
+import WineDetailPage from "./pages/WineDetailPage";
 
 // Design Colors
 const colors = {
