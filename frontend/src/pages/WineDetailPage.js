@@ -89,25 +89,25 @@ This is a wine of restraint and precision, designed to be enjoyed in its youth w
   chardonnay: {
     name: "Chardonnay",
     year: "2023",
-    tagline: "Pure. Precise. Beautifully Balanced.",
+    tagline: "Fresh. Lively. Effortlessly Balanced.",
     heroImage: "https://images.unsplash.com/photo-1566754436905-a083d30e3b62?w=1920&q=80",
-    description: "Fresh and precise, showing citrus, stone fruit, and restrained oak. Balanced acidity and texture lead to a clean, extended finish.",
-    longDescription: `Our Chardonnay exemplifies the cool-climate style that has become synonymous with premium Australian white wine. Grown in vineyards exposed to maritime influence, the grapes develop slowly, retaining natural acidity while building flavour complexity.
+    description: "Fresh and lively with vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey.",
+    longDescription: `Our Chardonnay is a fresh, lively wine that delivers vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey. On the palate, rich tropical flavours are balanced by a soft, easy-drinking texture and a touch of viscosity that adds weight without heaviness.
 
-The winemaking approach is deliberately restrained — whole-bunch pressing, wild fermentation in a combination of stainless steel and seasoned French oak, and careful lees stirring to build texture without obscuring the fruit. The result is a wine that speaks clearly of its origin.
+This wine showcases the best of cool-climate Australian Chardonnay — bright, fruit-forward, and elegantly structured. The careful winemaking process preserves the natural freshness while building complexity through subtle oak integration.
 
-Citrus and stone fruit dominate the aromatics, with subtle notes of cashew and flint adding complexity. The palate is precise and linear, with a textural weight from lees contact balanced by bright acidity that carries through to a long, clean finish.`,
+Perfect for those who appreciate a Chardonnay that balances richness with refreshing acidity.`,
     tastingNotes: {
       appearance: "Pale straw with green highlights",
-      nose: "Citrus, white peach, nectarine, cashew, flint",
-      palate: "Medium-bodied, precise, stone fruit, subtle oak integration",
-      finish: "Long and clean with lingering citrus"
+      nose: "Vibrant citrus peel, melon, ripe tropical fruit, subtle honey",
+      palate: "Rich tropical flavours, soft easy-drinking texture, touch of viscosity",
+      finish: "Clean and refreshing with balanced weight"
     },
     details: {
-      alcohol: "13.2%",
-      acidity: "6.5 g/L",
-      residualSugar: "1.5 g/L",
-      cellaringPotential: "5-8 years"
+      alcohol: "13.5%",
+      sugar: "2 g/L (Naturally Occurring)",
+      residualSugar: "2 g/L",
+      cellaringPotential: "3-5 years"
     },
     pairings: ["Roasted chicken", "Grilled fish", "Creamy pasta", "Triple cream brie"],
     servingTemp: "10-12°C",
