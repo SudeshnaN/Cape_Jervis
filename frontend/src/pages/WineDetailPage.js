@@ -8,25 +8,25 @@ const winesData = {
   shiraz: {
     name: "Shiraz",
     year: "2022",
-    tagline: "Bold. Structured. Distinctly Australian.",
+    tagline: "Smooth. Versatile. Perfectly Balanced.",
     heroImage: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=80",
-    description: "Medium-bodied and composed, with dark berry fruit, subtle spice, and fine tannins. A structured wine that reflects both maritime influence and varietal clarity.",
-    longDescription: `Our Shiraz embodies the essence of cool-climate Australian winemaking. Sourced from carefully selected vineyards where the maritime influence tempers the fruit, allowing for extended hang time and the development of complex aromatics.
+    description: "A medium-bodied, easy-drinking wine with silky tannins and ripe fruit flavours, crafted for versatility and enjoyment.",
+    longDescription: `Our Shiraz features a harmonious balance of silky tannins, ripe fruit flavours, and classic varietal character, delivering a smooth, food-friendly style that's perfect for any occasion.
 
-The wine presents a deep garnet colour with purple hues, offering an aromatic profile of dark berries, black pepper, and subtle hints of violet. The palate is medium-bodied with silky tannins, showcasing flavours of blackberry, plum, and a characteristic spice note that lingers on the finish.
+A medium-bodied, easy-drinking wine crafted for versatility and enjoyment. This Shiraz showcases the approachable side of the variety while maintaining the depth and character that Australian Shiraz is known for.
 
-Minimal intervention in the winery allows the fruit to express itself with clarity and precision, resulting in a wine of elegance and restraint rather than power.`,
+Whether paired with a hearty meal or enjoyed on its own, this wine delivers consistent quality and pleasure with every glass.`,
     tastingNotes: {
       appearance: "Deep garnet with purple hues",
-      nose: "Dark berries, black pepper, violet, subtle oak",
-      palate: "Medium-bodied, silky tannins, blackberry, plum, spice",
-      finish: "Long and elegant with fine-grained tannins"
+      nose: "Ripe fruit, classic varietal aromatics",
+      palate: "Medium-bodied, silky tannins, ripe fruit flavours, smooth texture",
+      finish: "Smooth and food-friendly"
     },
     details: {
-      alcohol: "14.2%",
-      acidity: "5.8 g/L",
-      residualSugar: "2.1 g/L",
-      cellaringPotential: "8-12 years"
+      alcohol: "14.5%",
+      sugar: "2 g/L (Naturally Occurring)",
+      residualSugar: "2 g/L",
+      cellaringPotential: "5-8 years"
     },
     pairings: ["Lamb shoulder", "Aged hard cheeses", "Mushroom risotto", "Dark chocolate"],
     servingTemp: "16-18°C",
@@ -35,25 +35,25 @@ Minimal intervention in the winery allows the fruit to express itself with clari
   "cabernet-sauvignon": {
     name: "Cabernet Sauvignon",
     year: "2021",
-    tagline: "Elegant. Refined. Built to Age.",
+    tagline: "Rich. Complex. Elegantly Structured.",
     heroImage: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80",
-    description: "Elegant and structured, with cassis, herbal notes, and refined tannins. Crafted for balance and cellaring potential.",
-    longDescription: `Our Cabernet Sauvignon represents the pinnacle of our red wine portfolio. This variety thrives in our cool-climate vineyards, developing the classic varietal character while maintaining freshness and acidity that sets it apart from warmer climate expressions.
+    description: "A rich, complex wine offering layers of flavour and elegant structure. Brick red in colour with expressive blackcurrant and leafy notes.",
+    longDescription: `Our Cabernet is a rich, complex wine offering layers of flavour and elegant structure. Brick red in colour, it opens with an expressive nose of blackcurrant and leafy notes, complemented by hints of cassis, game, and subtle cigar box aromas.
 
-The wine displays the hallmark characteristics of premium Cabernet — cassis, blackcurrant, and subtle herbal notes of eucalyptus and bay leaf. Judicious use of French oak adds complexity without overwhelming the fruit, contributing notes of cedar and vanilla that integrate seamlessly.
+This wine represents the pinnacle of our red wine portfolio, showcasing the depth and complexity that premium Cabernet Sauvignon can achieve. The careful vineyard selection and patient winemaking allow the true character of the variety to shine through.
 
-Structured yet elegant, this wine rewards patience. While approachable in its youth, the refined tannin structure and natural acidity suggest significant cellaring potential for those who wish to watch it evolve.`,
+A wine of sophistication and depth, perfect for special occasions or quiet moments of contemplation.`,
     tastingNotes: {
-      appearance: "Deep ruby with crimson edge",
-      nose: "Cassis, blackcurrant, eucalyptus, cedar, vanilla",
-      palate: "Full-bodied, refined tannins, dark fruit, herbal undertones",
-      finish: "Persistent and structured with graphite notes"
+      appearance: "Brick red with depth",
+      nose: "Expressive blackcurrant, leafy notes, cassis, game, subtle cigar box",
+      palate: "Rich and complex, layered flavours, elegant structure",
+      finish: "Persistent and structured with refined tannins"
     },
     details: {
       alcohol: "14.5%",
-      acidity: "5.6 g/L",
-      residualSugar: "1.8 g/L",
-      cellaringPotential: "15-20 years"
+      sugar: "2 g/L (Naturally Occurring)",
+      residualSugar: "2 g/L",
+      cellaringPotential: "10-15 years"
     },
     pairings: ["Beef fillet", "Venison", "Aged cheddar", "Lamb rack"],
     servingTemp: "17-19°C",
@@ -62,24 +62,24 @@ Structured yet elegant, this wine rewards patience. While approachable in its yo
   rose: {
     name: "Rosé",
     year: "2024",
-    tagline: "Fresh. Vibrant. Effortlessly Refined.",
+    tagline: "Vibrant. Elegant. Australian Summer.",
     heroImage: "https://images.unsplash.com/photo-1635232822657-3dcae6c7e715?w=1920&q=80",
-    description: "Pale salmon in colour with delicate notes of wild strawberry, citrus blossom, and a crisp, mineral finish.",
-    longDescription: `Our Rosé is crafted using the traditional Provençal method of direct pressing, resulting in a wine of pale elegance and refined character. Made primarily from Grenache with a small portion of Shiraz, it captures the essence of Australian summer while maintaining the sophistication expected of Cape Jervis Wine.
+    description: "Pale in colour and vibrant in character, perfectly balancing fresh strawberry and zesty lime in an elegant, dry style.",
+    longDescription: `Pale in colour and vibrant in character, our Rosé strikes a perfect balance between fresh strawberry and zesty lime—crafted in a style that captures the essence of the Australian summer.
 
-The brief skin contact yields a beautiful pale salmon hue, almost copper-tinged in the glass. The aromatics are immediately appealing — fresh strawberries, white peach, and a hint of citrus blossom. The palate is dry and refreshing, with a fine mineral thread that speaks to the limestone soils of our vineyards.
+Hand-selected by our winemaker, it delivers both intensity and complexity of flavour, while maintaining the dryness and delicate structure essential to this elegant Rosé.
 
-This is a wine of restraint and precision, designed to be enjoyed in its youth while the fruit is vibrant and the acidity bright.`,
+A wine that embodies sophistication and refreshment in equal measure, perfect for warm days and relaxed gatherings.`,
     tastingNotes: {
-      appearance: "Pale salmon with copper highlights",
-      nose: "Wild strawberry, white peach, citrus blossom, herbs",
-      palate: "Dry, crisp, delicate red fruit, mineral undertones",
-      finish: "Clean and refreshing with subtle salinity"
+      appearance: "Pale salmon with delicate hue",
+      nose: "Fresh strawberry, zesty lime, summer fruits",
+      palate: "Dry, intense flavour, complex character, delicate structure",
+      finish: "Clean and refreshing with elegant dryness"
     },
     details: {
-      alcohol: "12.8%",
-      acidity: "6.2 g/L",
-      residualSugar: "2.8 g/L",
+      alcohol: "13.5%",
+      sugar: "2 g/L (Naturally Occurring)",
+      residualSugar: "2 g/L",
       cellaringPotential: "1-2 years"
     },
     pairings: ["Fresh seafood", "Mediterranean salads", "Grilled vegetables", "Soft cheeses"],
