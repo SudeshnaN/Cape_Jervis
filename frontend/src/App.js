@@ -846,8 +846,18 @@ const Footer = () => {
 
 // Main App Component
 function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+// App Content with routing
+function AppContent() {
   const [ageVerified, setAgeVerified] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   // Check localStorage for age verification
   useEffect(() => {
@@ -898,6 +908,18 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ageVerified]);
 
+  // Handle hash navigation after page load
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div className="App">
       {/* Age Gate */}
@@ -911,21 +933,26 @@ function App() {
           {/* Grain Overlay */}
           <div className="grain-overlay" aria-hidden="true" />
 
-          {/* Navigation */}
-          <Navigation isScrolled={isScrolled} />
+          <Routes>
+            {/* Home Page */}
+            <Route path="/" element={
+              <>
+                <Navigation isScrolled={isScrolled} />
+                <main>
+                  <HeroSection />
+                  <AboutSection />
+                  <WinesSection />
+                  <TerroirSection />
+                  <TradeSection />
+                  <ContactSection />
+                </main>
+                <Footer />
+              </>
+            } />
 
-          {/* Main Content */}
-          <main>
-            <HeroSection />
-            <AboutSection />
-            <WinesSection />
-            <TerroirSection />
-            <TradeSection />
-            <ContactSection />
-          </main>
-
-          {/* Footer */}
-          <Footer />
+            {/* Wine Detail Pages */}
+            <Route path="/wines/:wineSlug" element={<WineDetailPage />} />
+          </Routes>
         </>
       )}
     </div>
