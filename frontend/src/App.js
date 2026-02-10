@@ -334,8 +334,8 @@ const WinesSection = () => {
       slug: "shiraz",
       year: "2022",
       description:
-        "Medium-bodied and composed, with dark berry fruit, subtle spice, and fine tannins. A structured wine that reflects both maritime influence and varietal clarity.",
-      notes: "Dark Berry, Subtle Spice, Fine Tannins",
+        "A medium-bodied, easy-drinking wine with silky tannins and ripe fruit flavours, crafted for versatility and enjoyment.",
+      notes: "Silky Tannins, Ripe Fruit, Smooth",
       pairing: "Lamb, Aged Cheeses, Dark Chocolate",
     },
     {
@@ -343,8 +343,8 @@ const WinesSection = () => {
       slug: "cabernet-sauvignon",
       year: "2021",
       description:
-        "Elegant and structured, with cassis, herbal notes, and refined tannins. Crafted for balance and cellaring potential.",
-      notes: "Cassis, Herbal Notes, Refined Tannins",
+        "A rich, complex wine offering layers of flavour and elegant structure. Brick red with expressive blackcurrant and leafy notes.",
+      notes: "Blackcurrant, Cassis, Cigar Box",
       pairing: "Beef, Game Meats, Aged Cheddar",
     },
     {
@@ -352,8 +352,8 @@ const WinesSection = () => {
       slug: "rose",
       year: "2024",
       description:
-        "Pale salmon in colour with delicate notes of wild strawberry, citrus blossom, and a crisp, mineral finish.",
-      notes: "Wild Strawberry, Citrus Blossom, Mineral",
+        "Pale in colour and vibrant in character, perfectly balancing fresh strawberry and zesty lime—capturing the essence of Australian summer.",
+      notes: "Fresh Strawberry, Zesty Lime, Dry",
       pairing: "Fresh Seafood, Mediterranean Salads",
     },
     {
@@ -361,8 +361,8 @@ const WinesSection = () => {
       slug: "chardonnay",
       year: "2023",
       description:
-        "Fresh and precise, showing citrus, stone fruit, and restrained oak. Balanced acidity and texture lead to a clean, extended finish.",
-      notes: "Citrus, Stone Fruit, Restrained Oak",
+        "Fresh and lively with vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey.",
+      notes: "Citrus, Melon, Tropical Fruit, Honey",
       pairing: "Seafood, Poultry, Creamy Pasta",
     },
     {
