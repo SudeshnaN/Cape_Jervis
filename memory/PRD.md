@@ -48,10 +48,24 @@ Create a premium, modern wine brand website for Cape Jervis Wine — Australia. 
 - ✅ Featured quote
 
 ### Wines Section
-- ✅ 3 wine cards: Shiraz (2022), Chardonnay (2023), Cabernet Sauvignon (2021)
-- ✅ Tasting notes and food pairings
+- ✅ 5 wine cards: Shiraz, Cabernet Sauvignon, Rosé, Chardonnay, Merlot
+- ✅ Each card links to individual wine detail page
+- ✅ Tasting notes summary
 - ✅ Horizontal scroll on mobile
-- ✅ Wine attribute icons
+
+### Individual Wine Pages (NEW)
+- ✅ `/wines/shiraz` - 2022 vintage detail page
+- ✅ `/wines/cabernet-sauvignon` - 2021 vintage detail page
+- ✅ `/wines/rose` - 2024 vintage detail page
+- ✅ `/wines/chardonnay` - 2023 vintage detail page
+- ✅ `/wines/merlot` - 2022 vintage detail page
+- ✅ Hero image with parallax effect
+- ✅ Overview with detailed description
+- ✅ Tasting notes (Appearance, Nose, Palate, Finish)
+- ✅ Food pairings
+- ✅ Technical details (Alcohol, Acidity, Cellaring)
+- ✅ Previous/Next wine navigation
+- ✅ Back to Collection link
 
 ### Terroir Section
 - ✅ Limestone texture background with parallax
@@ -82,6 +96,7 @@ Create a premium, modern wine brand website for Cape Jervis Wine — Australia. 
 - ✅ Responsive design
 - ✅ CSS custom properties for color palette
 - ✅ Grain texture overlay
+- ✅ React Router for wine detail pages
 
 ## Prioritized Backlog
 ### P0 - Completed
