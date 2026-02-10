@@ -400,7 +400,7 @@ const WinesSection = () => {
         </motion.div>
 
         {/* Wines Grid - Horizontal Scroll on Mobile */}
-        <div className="horizontal-scroll lg:grid lg:grid-cols-3 gap-8">
+        <div className="horizontal-scroll lg:grid lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {wines.map((wine, index) => (
             <motion.div
               key={wine.name}
@@ -409,33 +409,37 @@ const WinesSection = () => {
               viewport={{ once: true }}
               transition={{
                 duration: 0.8,
-                delay: index * 0.15,
+                delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="wine-card group min-w-[300px] lg:min-w-0 mr-6 lg:mr-0 transition-colors duration-500"
-              data-testid={`wine-card-${wine.name.toLowerCase().replace(' ', '-')}`}
+              className="min-w-[280px] lg:min-w-0 mr-6 lg:mr-0"
             >
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-serif text-3xl text-[#1A1A1A]">{wine.name}</h3>
-                <span className="text-[#1A1A1A]/40 text-sm">{wine.year}</span>
-              </div>
-              <p className="text-[#1A1A1A]/70 text-base leading-relaxed mb-8">
-                {wine.description}
-              </p>
-              <div className="space-y-4 border-t border-[#1A1A1A]/10 pt-6">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/50 mb-2">
-                    Tasting Notes
-                  </p>
-                  <p className="text-sm text-[#1A1A1A]">{wine.notes}</p>
+              <Link 
+                to={`/wines/${wine.slug}`}
+                className="wine-card group block transition-colors duration-500 h-full"
+                data-testid={`wine-card-${wine.slug}`}
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-serif text-2xl text-[#1A1A1A] group-hover:text-[#4B7F78] transition-colors">
+                    {wine.name}
+                  </h3>
+                  <span className="text-[#1A1A1A]/40 text-sm">{wine.year}</span>
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/50 mb-2">
-                    Pairs With
-                  </p>
-                  <p className="text-sm text-[#1A1A1A]">{wine.pairing}</p>
+                <p className="text-[#1A1A1A]/70 text-sm leading-relaxed mb-6 line-clamp-3">
+                  {wine.description}
+                </p>
+                <div className="space-y-3 border-t border-[#1A1A1A]/10 pt-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/50 mb-1">
+                      Tasting Notes
+                    </p>
+                    <p className="text-xs text-[#1A1A1A]">{wine.notes}</p>
+                  </div>
                 </div>
-              </div>
+                <div className="mt-6 flex items-center gap-2 text-[#4B7F78] text-xs uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  View Details <ArrowRight size={14} />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
