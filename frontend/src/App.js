@@ -451,7 +451,7 @@ const CollectionSection = () => {
                 {/* Content Overlay */}
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
-                    <span className="text-white/50 text-[10px] uppercase tracking-[0.2em]">{wine.year}</span>
+                    <div></div>
                     <ArrowRight size={20} className="text-white/0 group-hover:text-white transition-all duration-500 -translate-x-4 group-hover:translate-x-0" />
                   </div>
                   <div>
