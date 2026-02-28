@@ -154,8 +154,21 @@ export const WineDetailPage = () => {
   const prevWine = currentIndex > 0 ? wineOrder[currentIndex - 1] : null;
   const nextWine = currentIndex < wineOrder.length - 1 ? wineOrder[currentIndex + 1] : null;
 
+  // Force scroll to top on mount and route change
+  useLayoutEffect(() => {
+    // Immediately set scroll position before paint
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, [wineSlug]);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    // Double-ensure after render
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+    }, 50);
+    return () => clearTimeout(timer);
   }, [wineSlug]);
 
   if (!wine) {
