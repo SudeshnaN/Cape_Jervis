@@ -7,7 +7,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const winesData = {
   shiraz: {
     name: "Shiraz",
-    year: "2022",
     tagline: "Smooth. Versatile. Perfectly Balanced.",
     heroImage: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?w=800&q=80",
