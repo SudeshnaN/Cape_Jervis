@@ -32,7 +32,6 @@ A medium-bodied, easy-drinking wine crafted for versatility and enjoyment. This 
   },
   "cabernet-sauvignon": {
     name: "Cabernet Sauvignon",
-    year: "2021",
     tagline: "Rich. Complex. Elegantly Structured.",
     heroImage: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=800&q=80",
