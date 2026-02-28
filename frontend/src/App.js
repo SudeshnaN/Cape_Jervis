@@ -325,6 +325,47 @@ const StorySection = () => {
   );
 };
 
+// Video Section - Cinematic
+const VideoSection = () => {
+  return (
+    <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/vineyard-video.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]/90" />
+      
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-center px-8"
+        >
+          <p className="text-[#C9A96E] text-[10px] uppercase tracking-[0.4em] mb-6">Where Land Meets Ocean</p>
+          <h2 className="text-serif text-4xl md:text-6xl lg:text-7xl text-white font-light max-w-4xl leading-[1.1]">
+            Shaped by the<br />
+            <span className="italic">Southern Coast</span>
+          </h2>
+          <p className="text-white/50 text-base md:text-lg mt-8 max-w-xl mx-auto font-light">
+            The maritime influence of Australia's southern edge defines every bottle we craft.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Collection Section - Luxury Grid
 const CollectionSection = () => {
   const wines = [
