@@ -284,7 +284,7 @@ const StorySection = () => {
             {/* Overlay Card */}
             <div className="absolute -bottom-12 -right-8 md:right-8 bg-[#C9A96E] p-8 md:p-12 max-w-xs">
               <p className="text-[#0A0A0A] text-xs uppercase tracking-[0.2em] mb-3">Established</p>
-              <p className="text-[#0A0A0A] text-serif text-4xl">2024</p>
+              <p className="text-[#0A0A0A] text-serif text-4xl">2025</p>
             </div>
           </motion.div>
 
