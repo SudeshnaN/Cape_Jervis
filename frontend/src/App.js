@@ -8,7 +8,7 @@ import WineDetailPage from "./pages/WineDetailPage";
 
 // Images
 const images = {
-  hero: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80",
+  hero: "https://images.unsplash.com/photo-1762945762906-83017fc549aa?w=1920&q=80",
   about: "https://images.unsplash.com/photo-1543418219-44e30b057fea?w=1200&q=80",
   vineyard: "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200&q=80",
   terroir: "https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?w=1920&q=80",
