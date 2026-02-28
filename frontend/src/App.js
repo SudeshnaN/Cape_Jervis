@@ -396,7 +396,6 @@ const CollectionSection = () => {
     {
       name: "Merlot",
       slug: "merlot",
-      year: "2022",
       description: "Plum, cherry, velvety tannins",
       image: "https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80",
     },
