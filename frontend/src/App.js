@@ -450,8 +450,7 @@ const CollectionSection = () => {
                 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
-                  <div className="flex justify-between items-start">
-                    <div></div>
+                  <div className="flex justify-end">
                     <ArrowRight size={20} className="text-white/0 group-hover:text-white transition-all duration-500 -translate-x-4 group-hover:translate-x-0" />
                   </div>
                   <div>
