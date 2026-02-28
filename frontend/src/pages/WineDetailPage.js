@@ -83,7 +83,7 @@ Hand-selected by our winemaker, it delivers both intensity and complexity of fla
   chardonnay: {
     name: "Chardonnay",
     tagline: "Fresh. Lively. Effortlessly Balanced.",
-    heroImage: "https://images.unsplash.com/photo-1599113656124-b96bf21e30d3?w=1920&q=80",
+    heroImage: "https://images.unsplash.com/photo-1659004418358-5c47e4c9b945?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1569919659476-f0852f9fcc25?w=800&q=80",
     description: "Fresh and lively with vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey.",
     longDescription: `Our Chardonnay is a fresh, lively wine that delivers vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey. On the palate, rich tropical flavours are balanced by a soft, easy-drinking texture and a touch of viscosity that adds weight without heaviness.
