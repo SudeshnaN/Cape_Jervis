@@ -6,6 +6,28 @@ import Lenis from "lenis";
 import { ArrowRight, ArrowDown, Menu, X, Mail, MapPin } from "lucide-react";
 import WineDetailPage from "./pages/WineDetailPage";
 
+// ScrollToTop component - forces scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    // Force scroll to top immediately
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    
+    // Reset scroll behavior after a brief delay
+    const timer = setTimeout(() => {
+      document.documentElement.style.scrollBehavior = '';
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [pathname]);
+  
+  return null;
+};
+
 // Images
 const images = {
   hero: "https://images.unsplash.com/photo-1762945762906-83017fc549aa?w=1920&q=80",
