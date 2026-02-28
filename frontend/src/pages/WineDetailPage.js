@@ -256,12 +256,8 @@ export const WineDetailPage = () => {
                 className="hidden lg:flex justify-end gap-16"
               >
                 <div className="text-right">
-                  <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-2">Alcohol</p>
-                  <p className="text-white text-2xl font-light">{wine.details.alcohol}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-2">Sugar</p>
-                  <p className="text-white text-2xl font-light">{wine.details.sugar}</p>
+                  <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-2">Origin</p>
+                  <p className="text-white text-2xl font-light">South Australia</p>
                 </div>
                 <div className="text-right">
                   <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-2">Serve</p>
