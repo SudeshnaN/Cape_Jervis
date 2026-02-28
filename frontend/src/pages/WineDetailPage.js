@@ -21,11 +21,11 @@ A medium-bodied, easy-drinking wine crafted for versatility and enjoyment. This 
       palate: "Medium-bodied, silky tannins, ripe fruit flavours, smooth texture",
       finish: "Smooth and food-friendly"
     },
-    details: {
-      alcohol: "14.5%",
-      sugar: "2 g/L",
-      style: "Medium-bodied",
-      cellaring: "5-8 years"
+    characteristics: {
+      varietal: "Australia's signature red grape, Shiraz thrives in our cool coastal climate, developing elegance over power.",
+      philosophy: "Minimal intervention allows the fruit to speak, reflecting our commitment to authenticity and place.",
+      expression: "Cool maritime influence brings restraint and finesse to this approachable yet complex wine.",
+      occasion: "Versatile enough for casual dinners yet refined enough for special moments."
     },
     pairings: ["Lamb shoulder", "Aged hard cheeses", "Mushroom risotto", "Dark chocolate"],
     servingTemp: "16-18°C",
@@ -47,13 +47,13 @@ This wine represents the pinnacle of our red wine portfolio, showcasing the dept
       palate: "Rich and complex, layered flavours, elegant structure",
       finish: "Persistent and structured with refined tannins"
     },
-    details: {
-      alcohol: "14.5%",
-      sugar: "2 g/L",
-      style: "Full-bodied",
-      cellaring: "10-15 years"
+    characteristics: {
+      varietal: "The noble Cabernet Sauvignon, given time and cool conditions to develop its hallmark structure and depth.",
+      philosophy: "Patient winemaking honours the grape's natural complexity, embodying our pursuit of quiet confidence.",
+      expression: "Extended ripening on the vine builds layers of flavour while retaining the freshness of our coastal terroir.",
+      occasion: "A wine for contemplation and celebration, rewarding patience and attention."
     },
-    pairings: ["Beef fillet", "Venison", "Aged cheddar", "Lamb rack"],
+    pairings: ["Roasted lamb", "Venison", "Aged cheddar", "Herb-crusted rack"],
     servingTemp: "17-19°C",
     accentColor: "#4A0E0E"
   },
@@ -73,11 +73,11 @@ Hand-selected by our winemaker, it delivers both intensity and complexity of fla
       palate: "Dry, intense flavour, complex character, delicate structure",
       finish: "Clean and refreshing with elegant dryness"
     },
-    details: {
-      alcohol: "13.5%",
-      sugar: "2 g/L",
-      style: "Light & Crisp",
-      cellaring: "1-2 years"
+    characteristics: {
+      varietal: "Crafted in the Provençal tradition, our Rosé captures light and freshness in every glass.",
+      philosophy: "Precision and restraint define this wine—nothing more, nothing less than pure expression.",
+      expression: "The bright acidity of our coastal vineyards creates a wine of clarity and refreshment.",
+      occasion: "From afternoon gatherings to seaside moments, a wine that embodies effortless elegance."
     },
     pairings: ["Fresh seafood", "Mediterranean salads", "Grilled vegetables", "Soft cheeses"],
     servingTemp: "8-10°C",
@@ -99,11 +99,11 @@ Perfect for those who appreciate a Chardonnay that balances richness with refres
       palate: "Rich tropical flavours, soft easy-drinking texture, touch of viscosity",
       finish: "Clean and refreshing with balanced weight"
     },
-    details: {
-      alcohol: "13.5%",
-      sugar: "2 g/L",
-      style: "Medium-bodied",
-      cellaring: "3-5 years"
+    characteristics: {
+      varietal: "The world's most versatile white grape, expressing our terroir with precision and purity.",
+      philosophy: "Gentle handling preserves natural fruit character, reflecting our belief in minimal intervention.",
+      expression: "Cool climate conditions retain bright acidity, creating balance between richness and freshness.",
+      occasion: "From elegant dinners to relaxed afternoons, a wine of sophistication without pretense."
     },
     pairings: ["Roasted chicken", "Grilled fish", "Creamy pasta", "Triple cream brie"],
     servingTemp: "10-12°C",
@@ -125,11 +125,11 @@ Aromatics of ripe plum, cherry, and a hint of milk chocolate invite you in, whil
       palate: "Medium-bodied, velvety tannins, dark fruit, mocha",
       finish: "Smooth and supple with gentle persistence"
     },
-    details: {
-      alcohol: "13.8%",
-      sugar: "2 g/L",
-      style: "Medium-bodied",
-      cellaring: "5-8 years"
+    characteristics: {
+      varietal: "Often underestimated, Merlot in our hands becomes a wine of genuine character and quiet depth.",
+      philosophy: "We embrace the grape's natural softness, crafting a wine that welcomes rather than challenges.",
+      expression: "Maritime influence adds freshness to Merlot's inherent plushness, creating perfect balance.",
+      occasion: "An everyday luxury—approachable enough for Tuesday, refined enough for any gathering."
     },
     pairings: ["Duck breast", "Pork tenderloin", "Mushroom dishes", "Semi-hard cheeses"],
     servingTemp: "15-17°C",
