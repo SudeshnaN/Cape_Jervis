@@ -155,7 +155,7 @@ export const WineDetailPage = () => {
   const nextWine = currentIndex < wineOrder.length - 1 ? wineOrder[currentIndex + 1] : null;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [wineSlug]);
 
   if (!wine) {
