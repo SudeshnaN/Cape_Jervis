@@ -189,7 +189,7 @@ export const WineDetailPage = () => {
               Cape Jervis
             </Link>
             <Link 
-              to="/#wines" 
+              to="/#collection" 
               className="text-white text-xs uppercase tracking-[0.2em] flex items-center gap-3 hover:opacity-70 transition-opacity"
               data-testid="back-to-wines"
             >
