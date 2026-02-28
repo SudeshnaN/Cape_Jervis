@@ -395,7 +395,7 @@ const CollectionSection = () => {
       slug: "chardonnay",
       year: "2023",
       description: "Citrus, melon, tropical fruit, honey",
-      image: "https://images.unsplash.com/photo-1566754436905-a083d30e3b62?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1599113656124-b96bf21e30d3?w=800&q=80",
     },
     {
       name: "Merlot",
