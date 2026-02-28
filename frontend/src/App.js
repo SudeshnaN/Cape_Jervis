@@ -3,173 +3,158 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
-import { Wine, Leaf, Globe, MapPin, Mail, Phone, ArrowRight, Menu, X } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "./components/ui/dialog";
+import { ArrowRight, ArrowDown, Menu, X, Mail, MapPin } from "lucide-react";
 import WineDetailPage from "./pages/WineDetailPage";
 
-// Design Colors
-const colors = {
-  chalk: "#F9F9F7",
-  charcoal: "#1A1A1A",
-  sand: "#E6E2DD",
-  olive: "#4A5D46",
-  copper: "#4B7F78",
-  wine: "#5D1822",
-};
-
-// Images from design guidelines
+// Images
 const images = {
-  heroLighthouse: "https://images.unsplash.com/photo-1707398367347-3c35128081cb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxDYXBlJTIwSmVydmlzJTIwbGlnaHRob3VzZSUyMGNvYXN0JTIwYXVzdHJhbGlhfGVufDB8fHx8MTc3MDcxODcwMXww&ixlib=rb-4.1.0&q=85",
-  vineyardSunset: "https://images.unsplash.com/photo-1643190919973-f14e5ca6d301?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx2aW5leWFyZCUyMHJvd3MlMjBzdW5zZXQlMjBhdXN0cmFsaWF8ZW58MHx8fHwxNzcwNzE4NzA5fDA&ixlib=rb-4.1.0&q=85",
-  wineBottle: "https://images.unsplash.com/photo-1759971408697-a0ae9a906e4d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwzfHxwcmVtaXVtJTIwcmVkJTIwd2luZSUyMGJvdHRsZSUyMHN0dWRpbyUyMGxpZ2h0aW5nJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNzE4NzA3fDA&ixlib=rb-4.1.0&q=85",
-  wineCollection: "https://images.unsplash.com/photo-1565151461167-84645f3f7788?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwcmVkJTIwd2luZSUyMGJvdHRsZSUyMHN0dWRpbyUyMGxpZ2h0aW5nJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNzE4NzA3fDA&ixlib=rb-4.1.0&q=85",
-  textureLimestone: "https://images.unsplash.com/photo-1764021996050-a9936cf2a431?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwxfHxsaW1lc3RvbmUlMjByb2NrJTIwdGV4dHVyZSUyMG1hY3JvfGVufDB8fHx8MTc3MDcxODcxNHww&ixlib=rb-4.1.0&q=85",
-};
-
-// Animation variants
-const fadeUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-};
-
-const staggerContainer = {
-  initial: {},
-  whileInView: {
-    transition: { staggerChildren: 0.15 },
-  },
+  hero: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80",
+  about: "https://images.unsplash.com/photo-1543418219-44e30b057fea?w=1200&q=80",
+  vineyard: "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200&q=80",
+  terroir: "https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?w=1920&q=80",
+  contact: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200&q=80",
 };
 
 // Age Gate Component
 const AgeGate = ({ onVerify }) => {
   return (
-    <div className="age-gate-overlay" data-testid="age-gate-overlay">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[10000] bg-[#0A0A0A] flex items-center justify-center"
+      data-testid="age-gate-overlay"
+    >
+      <div className="absolute inset-0 opacity-20">
+        <img src={images.hero} alt="" className="w-full h-full object-cover" />
+      </div>
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center px-6 max-w-md"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="relative text-center px-8 max-w-lg"
       >
-        <h1 className="text-serif text-5xl md:text-6xl text-[#F9F9F7] mb-8">
+        <div className="w-16 h-[1px] bg-white/20 mx-auto mb-12" />
+        <h1 className="text-serif text-5xl md:text-7xl text-white font-light tracking-tight mb-4">
           Cape Jervis
         </h1>
-        <p className="text-[#F9F9F7]/70 text-sm tracking-wide mb-12">
+        <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-12">
+          Wine — Australia
+        </p>
+        <p className="text-white/60 text-sm leading-relaxed mb-16 font-light">
           To enter this site, you must be of legal drinking age in your country of residence.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={onVerify}
-            className="btn-light"
+            className="px-12 py-5 bg-white text-[#0A0A0A] text-xs uppercase tracking-[0.2em] hover:bg-[#C9A96E] hover:text-white transition-all duration-500"
             data-testid="age-verify-yes"
           >
-            I Am of Legal Age
+            Enter Site
           </button>
           <a
             href="https://www.google.com"
-            className="px-8 py-4 text-xs uppercase tracking-[0.2em] text-[#F9F9F7]/60 hover:text-[#F9F9F7] transition-colors duration-300"
+            className="px-12 py-5 border border-white/20 text-white/60 text-xs uppercase tracking-[0.2em] hover:border-white/40 hover:text-white transition-all duration-500"
             data-testid="age-verify-no"
           >
-            I Am Not
+            Exit
           </a>
         </div>
-        <p className="text-[#F9F9F7]/40 text-xs mt-12 tracking-wide">
+        <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] mt-16">
           Please enjoy responsibly
         </p>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
-// Navigation Component
+// Navigation
 const Navigation = ({ isScrolled }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Wines", href: "#wines" },
+    { label: "Story", href: "#story" },
+    { label: "Collection", href: "#collection" },
     { label: "Terroir", href: "#terroir" },
     { label: "Trade", href: "#trade" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "backdrop-blur-md bg-[#F9F9F7]/90 border-b border-[#1A1A1A]/5"
-          : "bg-transparent"
-      }`}
-      data-testid="main-navigation"
-    >
-      <div className="section-container">
-        <div className="flex items-center justify-between py-6">
-          <a href="#" className="text-serif text-xl tracking-tight text-[#1A1A1A]" data-testid="nav-logo">
-            Cape Jervis
-          </a>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          isScrolled ? "bg-[#0A0A0A]/95 backdrop-blur-md" : ""
+        }`}
+        data-testid="main-navigation"
+      >
+        <div className="max-w-[1800px] mx-auto px-8 md:px-16">
+          <div className="flex items-center justify-between h-24">
+            <Link to="/" className="text-serif text-2xl text-white tracking-tight" data-testid="nav-logo">
+              Cape Jervis
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="nav-link text-[#1A1A1A]"
-                data-testid={`nav-link-${link.label.toLowerCase()}`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-[#1A1A1A]"
-            data-testid="mobile-menu-toggle"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden pb-6"
-            >
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-12">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-3 nav-link text-[#1A1A1A]"
+                  className="text-white/60 text-[11px] uppercase tracking-[0.2em] hover:text-white transition-colors duration-300"
+                  data-testid={`nav-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </a>
               ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.nav>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden text-white"
+              data-testid="mobile-menu-toggle"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-[#0A0A0A] flex items-center justify-center lg:hidden"
+          >
+            <div className="text-center space-y-8">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-white text-2xl font-light"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
-// Hero Section
+// Hero Section - Cinematic
 const HeroSection = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -177,298 +162,279 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   return (
-    <section
-      ref={ref}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      data-testid="hero-section"
-    >
-      {/* Background Image with Parallax */}
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
+    <section ref={ref} className="relative h-screen overflow-hidden bg-[#0A0A0A]" data-testid="hero-section">
+      {/* Video/Image Background */}
+      <motion.div style={{ y, scale }} className="absolute inset-0">
         <img
-          src={images.heroLighthouse}
-          alt="Cape Jervis Lighthouse"
+          src={images.hero}
+          alt="Cape Jervis Wine"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#1A1A1A]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/30 to-[#0A0A0A]" />
       </motion.div>
 
       {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 text-center px-6 max-w-4xl"
-      >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[#F9F9F7]/80 text-xs uppercase tracking-[0.3em] mb-6"
-        >
-          Australia
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-serif text-5xl sm:text-6xl lg:text-8xl text-[#F9F9F7] mb-8"
-          data-testid="hero-title"
-        >
-          Cape Jervis Wine
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-[#F9F9F7]/90 text-base md:text-lg tracking-wide max-w-xl mx-auto mb-12"
-          data-testid="hero-subtitle"
-        >
-          Australian wines shaped by coast, climate, and clarity.
-        </motion.p>
-        <motion.a
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          href="#wines"
-          className="btn-light inline-flex items-center gap-3"
-          data-testid="hero-cta"
-        >
-          Explore Our Wines
-          <ArrowRight size={16} />
-        </motion.a>
-      </motion.div>
+      <motion.div style={{ opacity }} className="relative z-10 h-full flex flex-col justify-between pt-32 pb-16">
+        {/* Main Title */}
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.8 }}
+              className="mb-8"
+            >
+              <span className="text-[#C9A96E] text-[10px] uppercase tracking-[0.4em]">
+                Est. South Australia
+              </span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 1 }}
+              className="text-serif text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] text-white font-light tracking-tight leading-[0.9]"
+              data-testid="hero-title"
+            >
+              Cape<br />Jervis
+            </motion.h1>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.3 }}
+              className="text-white/50 text-sm md:text-base tracking-[0.15em] mt-8 font-light"
+              data-testid="hero-subtitle"
+            >
+              WINES SHAPED BY COAST, CLIMATE & CLARITY
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[1px] h-16 bg-[#F9F9F7]/40"
-        />
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6 }}
+          className="max-w-[1800px] mx-auto w-full px-8 md:px-16"
+        >
+          <div className="flex items-end justify-between border-t border-white/10 pt-8">
+            <div className="hidden md:block">
+              <p className="text-white/40 text-[10px] uppercase tracking-[0.2em]">Scroll to explore</p>
+            </div>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="mx-auto md:mx-0"
+            >
+              <ArrowDown size={20} className="text-white/40" />
+            </motion.div>
+            <div className="hidden md:block text-right">
+              <p className="text-white/40 text-[10px] uppercase tracking-[0.2em]">Premium Australian Wine</p>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );
 };
 
-// About Section
-const AboutSection = () => {
+// Story Section - Editorial
+const StorySection = () => {
   return (
-    <section
-      id="about"
-      className="bg-[#1A1A1A] py-24 md:py-32 lg:py-40"
-      data-testid="about-section"
-    >
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Content */}
-          <motion.div {...fadeUp}>
-            <p className="text-[#4B7F78] text-xs uppercase tracking-[0.2em] mb-6">
-              Our Philosophy
-            </p>
-            <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#F9F9F7] mb-8">
-              About Cape Jervis Wine
-            </h2>
-            <div className="space-y-6 text-[#F9F9F7]/70 text-base leading-relaxed">
-              <p>
-                Cape Jervis Wine draws its identity from a landscape defined by exposure
-                and light. The Cape Jervis Lighthouse has long served as a point of
-                direction along Australia's southern coast — a philosophy mirrored in
-                our approach to winemaking.
-              </p>
-              <p>
-                We believe the best wines are those that speak quietly but confidently.
-                Working with carefully selected vineyards influenced by cool maritime
-                conditions, we prioritise balance, natural acidity, and textural precision.
-              </p>
-              <p>
-                Minimal intervention in the winery allows each varietal and vintage to
-                express itself authentically, producing wines that are refined, composed,
-                and distinctly Australian.
-              </p>
+    <section id="story" className="bg-[#0A0A0A] py-32 md:py-48" data-testid="about-section">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-16">
+        {/* Intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="max-w-4xl mb-32"
+        >
+          <span className="text-[#C9A96E] text-[10px] uppercase tracking-[0.3em] block mb-8">Our Philosophy</span>
+          <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.2]">
+            From the southern edge of Australia, where land meets the Southern Ocean, 
+            <span className="text-white/40"> we craft wines defined by balance, restraint, and clarity.</span>
+          </h2>
+        </motion.div>
+
+        {/* Split Content */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="relative"
+          >
+            <div className="aspect-[3/4] overflow-hidden">
+              <img
+                src={images.about}
+                alt="Winemaking"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Overlay Card */}
+            <div className="absolute -bottom-12 -right-8 md:right-8 bg-[#C9A96E] p-8 md:p-12 max-w-xs">
+              <p className="text-[#0A0A0A] text-xs uppercase tracking-[0.2em] mb-3">Established</p>
+              <p className="text-[#0A0A0A] text-serif text-4xl">2024</p>
             </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-[4/5] overflow-hidden"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="lg:pl-8"
           >
-            <img
-              src={images.vineyardSunset}
-              alt="Australian vineyard at sunset"
-              className="w-full h-full object-cover"
-            />
+            <div className="space-y-8 text-white/60 text-base md:text-lg leading-relaxed font-light">
+              <p>
+                Cape Jervis Wine takes its name from the southern coastal town of Cape Jervis, 
+                where the Cape Jervis Lighthouse has long served as a point of direction — 
+                a philosophy mirrored in our approach to winemaking.
+              </p>
+              <p>
+                We believe the best wines are those that speak quietly but confidently. 
+                Working with carefully selected vineyards influenced by cool maritime conditions, 
+                we prioritise natural acidity, textural precision, and varietal expression.
+              </p>
+              <p>
+                Minimal intervention in the winery allows each vintage to express itself 
+                authentically, producing wines that are refined, composed, and distinctly Australian.
+              </p>
+            </div>
+            <div className="mt-12 pt-12 border-t border-white/10">
+              <a href="#collection" className="inline-flex items-center gap-4 text-white text-xs uppercase tracking-[0.2em] hover:text-[#C9A96E] transition-colors group">
+                Discover Our Wines
+                <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+              </a>
+            </div>
           </motion.div>
         </div>
-
-        {/* Intro Quote */}
-        <motion.div
-          {...fadeUp}
-          className="mt-24 lg:mt-32 border-t border-[#F9F9F7]/10 pt-16"
-        >
-          <blockquote className="text-serif text-2xl md:text-3xl lg:text-4xl text-[#F9F9F7]/90 italic max-w-3xl">
-            "From the southern edge of Australia, Cape Jervis Wine is guided by place,
-            precision, and restraint."
-          </blockquote>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-// Wines Section
-const WinesSection = () => {
+// Collection Section - Luxury Grid
+const CollectionSection = () => {
   const wines = [
     {
       name: "Shiraz",
       slug: "shiraz",
       year: "2022",
-      description:
-        "A medium-bodied, easy-drinking wine with silky tannins and ripe fruit flavours, crafted for versatility and enjoyment.",
-      notes: "Silky Tannins, Ripe Fruit, Smooth",
-      pairing: "Lamb, Aged Cheeses, Dark Chocolate",
+      description: "Silky tannins, ripe fruit, smooth texture",
+      image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
     },
     {
       name: "Cabernet Sauvignon",
       slug: "cabernet-sauvignon",
       year: "2021",
-      description:
-        "A rich, complex wine offering layers of flavour and elegant structure. Brick red with expressive blackcurrant and leafy notes.",
-      notes: "Blackcurrant, Cassis, Cigar Box",
-      pairing: "Beef, Game Meats, Aged Cheddar",
+      description: "Blackcurrant, cassis, elegant structure",
+      image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80",
     },
     {
       name: "Rosé",
       slug: "rose",
       year: "2024",
-      description:
-        "Pale in colour and vibrant in character, perfectly balancing fresh strawberry and zesty lime—capturing the essence of Australian summer.",
-      notes: "Fresh Strawberry, Zesty Lime, Dry",
-      pairing: "Fresh Seafood, Mediterranean Salads",
+      description: "Fresh strawberry, zesty lime, dry finish",
+      image: "https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?w=800&q=80",
     },
     {
       name: "Chardonnay",
       slug: "chardonnay",
       year: "2023",
-      description:
-        "Fresh and lively with vibrant citrus peel and melon aromas, layered with ripe tropical fruit and a subtle hint of honey.",
-      notes: "Citrus, Melon, Tropical Fruit, Honey",
-      pairing: "Seafood, Poultry, Creamy Pasta",
+      description: "Citrus, melon, tropical fruit, honey",
+      image: "https://images.unsplash.com/photo-1566754436905-a083d30e3b62?w=800&q=80",
     },
     {
       name: "Merlot",
       slug: "merlot",
       year: "2022",
-      description:
-        "Velvety and approachable, with plum, cherry, and hints of chocolate. Soft tannins and a supple texture make this wine immediately enjoyable.",
-      notes: "Plum, Cherry, Chocolate",
-      pairing: "Duck, Pork, Mushroom Dishes",
+      description: "Plum, cherry, velvety tannins",
+      image: "https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80",
     },
   ];
 
   return (
-    <section
-      id="wines"
-      className="bg-[#F9F9F7] py-24 md:py-32 lg:py-40"
-      data-testid="wines-section"
-    >
-      <div className="section-container">
+    <section id="collection" className="bg-[#F5F3F0] py-32 md:py-48" data-testid="wines-section">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-16">
         {/* Header */}
-        <motion.div {...fadeUp} className="mb-16 md:mb-24">
-          <p className="text-[#4B7F78] text-xs uppercase tracking-[0.2em] mb-6">
-            The Collection
-          </p>
-          <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] mb-8">
-            Our Wines
-          </h2>
-          <p className="text-[#1A1A1A]/70 max-w-2xl text-base leading-relaxed">
-            Cape Jervis Wine produces a considered portfolio of Australian wines crafted
-            for balance, longevity, and international appeal. Each wine is shaped by
-            vineyard expression, coastal influence, purity of fruit, and natural
-            structure.
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-20"
+        >
+          <div>
+            <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-6">The Collection</span>
+            <h2 className="text-serif text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] font-light">
+              Our Wines
+            </h2>
+          </div>
+          <p className="text-[#1A1A1A]/50 text-sm max-w-md mt-6 md:mt-0 font-light">
+            A considered portfolio crafted for balance, longevity, and international appeal.
           </p>
         </motion.div>
 
-        {/* Wines Grid - Horizontal Scroll on Mobile */}
-        <div className="horizontal-scroll lg:grid lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {/* Wine Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {wines.map((wine, index) => (
             <motion.div
-              key={wine.name}
+              key={wine.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="min-w-[280px] lg:min-w-0 mr-6 lg:mr-0"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`${index === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}`}
             >
-              <Link 
+              <Link
                 to={`/wines/${wine.slug}`}
-                className="wine-card group block transition-colors duration-500 h-full"
+                className="group block relative overflow-hidden bg-[#1A1A1A]"
                 data-testid={`wine-card-${wine.slug}`}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-serif text-2xl text-[#1A1A1A] group-hover:text-[#4B7F78] transition-colors">
-                    {wine.name}
-                  </h3>
-                  <span className="text-[#1A1A1A]/40 text-sm">{wine.year}</span>
+                <div className={`relative ${index === 0 ? 'aspect-square' : 'aspect-[4/5]'} overflow-hidden`}>
+                  <img
+                    src={wine.image}
+                    alt={wine.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
                 </div>
-                <p className="text-[#1A1A1A]/70 text-sm leading-relaxed mb-6 line-clamp-3">
-                  {wine.description}
-                </p>
-                <div className="space-y-3 border-t border-[#1A1A1A]/10 pt-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/50 mb-1">
-                      Tasting Notes
-                    </p>
-                    <p className="text-xs text-[#1A1A1A]">{wine.notes}</p>
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <span className="text-white/50 text-[10px] uppercase tracking-[0.2em]">{wine.year}</span>
+                    <ArrowRight size={20} className="text-white/0 group-hover:text-white transition-all duration-500 -translate-x-4 group-hover:translate-x-0" />
                   </div>
-                </div>
-                <div className="mt-6 flex items-center gap-2 text-[#4B7F78] text-xs uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 transition-opacity">
-                  View Details <ArrowRight size={14} />
+                  <div>
+                    <h3 className={`text-serif text-white ${index === 0 ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'} font-light mb-3`}>
+                      {wine.name}
+                    </h3>
+                    <p className="text-white/50 text-sm font-light">{wine.description}</p>
+                  </div>
                 </div>
               </Link>
             </motion.div>
           ))}
         </div>
-
-        {/* Wine Attributes */}
-        <motion.div
-          {...fadeUp}
-          className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#1A1A1A]/10 pt-16"
-        >
-          {[
-            { icon: <Leaf size={24} />, label: "Vineyard Expression" },
-            { icon: <Wine size={24} />, label: "Coastal Influence" },
-            { icon: <Globe size={24} />, label: "Purity of Fruit" },
-            { icon: <MapPin size={24} />, label: "Natural Structure" },
-          ].map((item, index) => (
-            <div key={item.label} className="text-center">
-              <div className="text-[#4B7F78] mb-4 flex justify-center">{item.icon}</div>
-              <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/70">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
 };
 
-// Terroir Section
+// Terroir Section - Immersive
 const TerroirSection = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -476,89 +442,69 @@ const TerroirSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
+  const features = [
+    { number: "01", title: "Maritime Influence", description: "Cool coastal breezes moderate temperatures throughout the growing season." },
+    { number: "02", title: "Extended Ripening", description: "Longer hang time develops complex flavours while retaining natural acidity." },
+    { number: "03", title: "Ancient Soils", description: "Limestone and clay foundations contribute mineral complexity and structure." },
+    { number: "04", title: "Minimal Intervention", description: "Traditional methods allow authentic expression of place and variety." },
+  ];
 
   return (
-    <section
-      id="terroir"
-      ref={ref}
-      className="relative py-24 md:py-32 lg:py-40 overflow-hidden"
-      data-testid="terroir-section"
-    >
+    <section id="terroir" ref={ref} className="relative min-h-screen bg-[#0A0A0A]" data-testid="terroir-section">
       {/* Background */}
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
+      <motion.div style={{ y }} className="absolute inset-0">
         <img
-          src={images.textureLimestone}
-          alt="Limestone texture"
-          className="w-full h-full object-cover"
+          src={images.terroir}
+          alt="Vineyard"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-[#1A1A1A]/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
       </motion.div>
 
-      <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-          {/* Content */}
-          <motion.div {...fadeUp}>
-            <p className="text-[#4B7F78] text-xs uppercase tracking-[0.2em] mb-6">
-              Origin
-            </p>
-            <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#F9F9F7] mb-8">
-              Regions & Terroir
-            </h2>
-            <div className="space-y-6 text-[#F9F9F7]/70 text-base leading-relaxed">
-              <p>
-                Australia's diverse growing regions provide the foundation for Cape Jervis
-                Wine's style. The vineyards associated with the portfolio benefit from
-                unique environmental conditions that define our wines.
+      {/* Content */}
+      <div className="relative z-10 py-32 md:py-48">
+        <div className="max-w-[1800px] mx-auto px-8 md:px-16">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
+            {/* Left */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-[#C9A96E] text-[10px] uppercase tracking-[0.3em] block mb-8">Origin</span>
+              <h2 className="text-serif text-5xl md:text-6xl lg:text-7xl text-white font-light leading-[1.1] mb-8">
+                Terroir &<br />Region
+              </h2>
+              <p className="text-white/50 text-lg font-light leading-relaxed max-w-md">
+                Australia's diverse growing regions provide the foundation for our distinctive style—wines of freshness, structure, and clarity.
               </p>
-              <p>
-                These conditions result in wines of freshness, structure, and clarity —
-                hallmarks of the Cape Jervis Wine approach.
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Features */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-8"
-          >
-            {[
-              {
-                title: "Proximity to the Coast",
-                description: "Cool maritime breezes moderate temperatures and extend the growing season.",
-              },
-              {
-                title: "Cool Growing Seasons",
-                description: "Lower temperatures preserve natural acidity and develop complex aromatics.",
-              },
-              {
-                title: "Extended Ripening",
-                description: "Longer hang time allows for full phenolic development and balanced sugars.",
-              },
-              {
-                title: "Natural Acidity",
-                description: "Retained acidity provides freshness, structure, and ageing potential.",
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="border-l-2 border-[#4B7F78] pl-6"
-              >
-                <h3 className="text-serif text-xl text-[#F9F9F7] mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-[#F9F9F7]/60 text-sm">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Right - Features */}
+            <div className="space-y-0">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.number}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="border-t border-white/10 py-8 group hover:bg-white/5 transition-colors px-4 -mx-4"
+                >
+                  <div className="flex gap-8">
+                    <span className="text-[#C9A96E] text-sm">{feature.number}</span>
+                    <div>
+                      <h3 className="text-white text-xl font-light mb-2">{feature.title}</h3>
+                      <p className="text-white/40 text-sm font-light">{feature.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -568,55 +514,50 @@ const TerroirSection = () => {
 // Trade Section
 const TradeSection = () => {
   return (
-    <section
-      id="trade"
-      className="bg-[#E6E2DD] py-24 md:py-32 lg:py-40"
-      data-testid="trade-section"
-    >
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Image */}
+    <section id="trade" className="bg-[#F5F3F0] py-32 md:py-48" data-testid="trade-section">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-square overflow-hidden order-2 lg:order-1"
+            transition={{ duration: 0.8 }}
           >
-            <img
-              src={images.wineCollection}
-              alt="Premium wine collection"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          {/* Content */}
-          <motion.div {...fadeUp} className="order-1 lg:order-2">
-            <p className="text-[#4B7F78] text-xs uppercase tracking-[0.2em] mb-6">
-              Partnership
-            </p>
-            <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] mb-8">
-              Global Markets
+            <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-8">Partnership</span>
+            <h2 className="text-serif text-5xl md:text-6xl text-[#1A1A1A] font-light leading-[1.1] mb-8">
+              Global<br />Distribution
             </h2>
-            <div className="space-y-6 text-[#1A1A1A]/70 text-base leading-relaxed mb-10">
-              <p>
-                Cape Jervis Wine is positioned for international distribution and export.
-                Our wines are crafted to meet the expectations of global markets while
-                retaining a strong sense of Australian provenance.
-              </p>
-              <p>
-                We work with distributors, hospitality buyers, and trade partners who
-                value consistency, integrity, and long-term collaboration.
-              </p>
-            </div>
+            <p className="text-[#1A1A1A]/60 text-lg font-light leading-relaxed mb-8">
+              Cape Jervis Wine is positioned for international distribution and export. 
+              We work with distributors, hospitality buyers, and trade partners who value 
+              consistency, integrity, and long-term collaboration.
+            </p>
             <a
               href="#contact"
-              className="btn-primary inline-flex items-center gap-3"
+              className="inline-flex items-center gap-4 px-8 py-4 bg-[#1A1A1A] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#8B7355] transition-colors group"
               data-testid="trade-cta"
             >
-              Trade & Distribution Enquiries
-              <ArrowRight size={16} />
+              Trade Enquiries
+              <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
             </a>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src={images.vineyard}
+                alt="Vineyard"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
@@ -630,163 +571,100 @@ const ContactSection = () => {
     name: "",
     email: "",
     company: "",
-    enquiryType: "general",
     message: "",
-    newsletter: false,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Visual mockup - no actual submission
     alert("Thank you for your enquiry. This is a visual mockup.");
   };
 
   return (
-    <section
-      id="contact"
-      className="bg-[#F9F9F7] py-24 md:py-32 lg:py-40"
-      data-testid="contact-section"
-    >
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+    <section id="contact" className="bg-[#0A0A0A] py-32 md:py-48" data-testid="contact-section">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
           {/* Info */}
-          <motion.div {...fadeUp}>
-            <p className="text-[#4B7F78] text-xs uppercase tracking-[0.2em] mb-6">
-              Get in Touch
-            </p>
-            <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-[#C9A96E] text-[10px] uppercase tracking-[0.3em] block mb-8">Get in Touch</span>
+            <h2 className="text-serif text-5xl md:text-6xl lg:text-7xl text-white font-light leading-[1.1] mb-8">
               Contact
             </h2>
-            <p className="text-[#1A1A1A]/70 text-base leading-relaxed mb-10">
-              For trade, distribution, or general enquiries, please get in touch.
-              We welcome conversations with partners who share our commitment to
-              quality and authenticity.
+            <p className="text-white/50 text-lg font-light leading-relaxed mb-12 max-w-md">
+              For trade, distribution, or general enquiries, we'd love to hear from you.
             </p>
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <Mail size={20} className="text-[#4B7F78]" />
-                <span className="text-[#1A1A1A]">enquiries@capejerviswine.com.au</span>
+                <Mail size={18} className="text-[#C9A96E]" />
+                <span className="text-white/70 font-light">enquiries@capejerviswine.com.au</span>
               </div>
               <div className="flex items-center gap-4">
-                <Phone size={20} className="text-[#4B7F78]" />
-                <span className="text-[#1A1A1A]">+61 8 XXXX XXXX</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <MapPin size={20} className="text-[#4B7F78]" />
-                <span className="text-[#1A1A1A]">South Australia, Australia</span>
+                <MapPin size={18} className="text-[#C9A96E]" />
+                <span className="text-white/70 font-light">South Australia, Australia</span>
               </div>
             </div>
           </motion.div>
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-8" data-testid="contact-form">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="input-underline"
-                  data-testid="contact-name"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="input-underline"
-                  data-testid="contact-email"
-                />
-              </div>
-
-              <input
-                type="text"
-                placeholder="Company (Optional)"
-                value={formData.company}
-                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="input-underline"
-                data-testid="contact-company"
-              />
-
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-[#1A1A1A]/50 mb-4">
-                  Enquiry Type
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  {[
-                    { value: "general", label: "General" },
-                    { value: "trade", label: "Trade & Distribution" },
-                    { value: "press", label: "Press & Media" },
-                  ].map((option) => (
-                    <label
-                      key={option.value}
-                      className="flex items-center gap-2 cursor-pointer group"
-                    >
-                      <div
-                        className={`w-4 h-4 border transition-colors ${
-                          formData.enquiryType === option.value
-                            ? "bg-[#1A1A1A] border-[#1A1A1A]"
-                            : "border-[#1A1A1A]/30 group-hover:border-[#1A1A1A]/50"
-                        }`}
-                      />
-                      <input
-                        type="radio"
-                        name="enquiryType"
-                        value={option.value}
-                        checked={formData.enquiryType === option.value}
-                        onChange={(e) =>
-                          setFormData({ ...formData, enquiryType: e.target.value })
-                        }
-                        className="sr-only"
-                      />
-                      <span className="text-sm text-[#1A1A1A]">{option.label}</span>
-                    </label>
-                  ))}
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/30 focus:border-[#C9A96E] focus:outline-none transition-colors"
+                    data-testid="contact-name"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/30 focus:border-[#C9A96E] focus:outline-none transition-colors"
+                    data-testid="contact-email"
+                  />
                 </div>
               </div>
-
-              <textarea
-                placeholder="Your message..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={4}
-                className="input-underline resize-none"
-                data-testid="contact-message"
-              />
-
-              <label className="flex items-start gap-3 cursor-pointer group">
-                <div
-                  className={`w-4 h-4 border mt-0.5 transition-colors ${
-                    formData.newsletter
-                      ? "bg-[#1A1A1A] border-[#1A1A1A]"
-                      : "border-[#1A1A1A]/30 group-hover:border-[#1A1A1A]/50"
-                  }`}
-                  onClick={() =>
-                    setFormData({ ...formData, newsletter: !formData.newsletter })
-                  }
-                />
+              <div>
                 <input
-                  type="checkbox"
-                  checked={formData.newsletter}
-                  onChange={(e) =>
-                    setFormData({ ...formData, newsletter: e.target.checked })
-                  }
-                  className="sr-only"
-                  data-testid="contact-newsletter"
+                  type="text"
+                  placeholder="Company (Optional)"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/30 focus:border-[#C9A96E] focus:outline-none transition-colors"
+                  data-testid="contact-company"
                 />
-                <span className="text-sm text-[#1A1A1A]/70">
-                  Subscribe to receive updates on new releases and vineyard news
-                </span>
-              </label>
-
-              <button type="submit" className="btn-primary" data-testid="contact-submit">
+              </div>
+              <div>
+                <textarea
+                  placeholder="Your message..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/30 focus:border-[#C9A96E] focus:outline-none transition-colors resize-none"
+                  data-testid="contact-message"
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-10 py-5 bg-white text-[#0A0A0A] text-xs uppercase tracking-[0.2em] hover:bg-[#C9A96E] hover:text-white transition-all duration-500"
+                data-testid="contact-submit"
+              >
                 Send Enquiry
               </button>
             </form>
@@ -800,42 +678,41 @@ const ContactSection = () => {
 // Footer
 const Footer = () => {
   return (
-    <footer
-      className="bg-[#1A1A1A] py-24 md:py-32"
-      data-testid="footer"
-    >
-      <div className="section-container">
-        <motion.div {...fadeUp} className="text-center mb-16">
-          <h2 className="text-serif text-6xl md:text-7xl lg:text-8xl text-[#F9F9F7] mb-8">
-            Cape Jervis
-          </h2>
-          <p className="text-[#F9F9F7]/50 text-sm tracking-wide max-w-md mx-auto">
-            Australian wines shaped by coast, climate, and clarity.
-          </p>
-        </motion.div>
-
-        {/* Footer Links */}
-        <div className="flex flex-wrap justify-center gap-8 mb-16">
-          {["About", "Wines", "Terroir", "Trade", "Contact"].map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="nav-link text-[#F9F9F7]/60 hover:text-[#F9F9F7]"
-            >
-              {link}
-            </a>
-          ))}
+    <footer className="bg-[#0A0A0A] border-t border-white/5" data-testid="footer">
+      <div className="max-w-[1800px] mx-auto px-8 md:px-16 py-20">
+        {/* Main Footer */}
+        <div className="grid md:grid-cols-3 gap-12 mb-20">
+          <div>
+            <h3 className="text-serif text-4xl text-white font-light mb-4">Cape Jervis</h3>
+            <p className="text-white/30 text-sm">Wine — Australia</p>
+          </div>
+          <div className="md:text-center">
+            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] mb-4">Navigate</p>
+            <div className="flex flex-col md:flex-row md:justify-center gap-4 md:gap-8">
+              {["Story", "Collection", "Terroir", "Trade", "Contact"].map((link) => (
+                <a
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  className="text-white/50 text-sm hover:text-white transition-colors"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="md:text-right">
+            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] mb-4">Location</p>
+            <p className="text-white/50 text-sm">South Australia</p>
+            <p className="text-white/50 text-sm">Australia</p>
+          </div>
         </div>
 
-        {/* Legal */}
-        <div className="border-t border-[#F9F9F7]/10 pt-12 text-center">
-          <p className="text-[#F9F9F7]/40 text-xs tracking-wide mb-4">
-            Please enjoy responsibly.
+        {/* Bottom */}
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/20 text-xs">
+            Please enjoy responsibly. You must be of legal drinking age.
           </p>
-          <p className="text-[#F9F9F7]/40 text-xs tracking-wide mb-8">
-            You must be of legal drinking age to visit this site.
-          </p>
-          <p className="text-[#F9F9F7]/30 text-xs tracking-wide">
+          <p className="text-white/20 text-xs">
             © {new Date().getFullYear()} Cape Jervis Wine — Australia
           </p>
         </div>
@@ -844,22 +721,30 @@ const Footer = () => {
   );
 };
 
-// Main App Component
-function App() {
+// Home Page Component
+const HomePage = ({ isScrolled }) => {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <>
+      <Navigation isScrolled={isScrolled} />
+      <main>
+        <HeroSection />
+        <StorySection />
+        <CollectionSection />
+        <TerroirSection />
+        <TradeSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
   );
-}
+};
 
-// App Content with routing
+// App Content
 function AppContent() {
   const [ageVerified, setAgeVerified] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Check localStorage for age verification
   useEffect(() => {
     const verified = localStorage.getItem("capejervis_age_verified");
     if (verified === "true") {
@@ -867,20 +752,17 @@ function AppContent() {
     }
   }, []);
 
-  // Handle age verification
   const handleAgeVerify = () => {
     localStorage.setItem("capejervis_age_verified", "true");
     setAgeVerified(true);
   };
 
-  // Initialize Lenis smooth scroll
   useEffect(() => {
     if (!ageVerified) return;
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
       smoothWheel: true,
     });
 
@@ -888,74 +770,49 @@ function AppContent() {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
+    return () => lenis.destroy();
   }, [ageVerified]);
 
-  // Handle scroll for navigation
   useEffect(() => {
     if (!ageVerified) return;
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ageVerified]);
 
-  // Handle hash navigation after page load
   useEffect(() => {
     if (location.hash) {
       setTimeout(() => {
-        const element = document.getElementById(location.hash.slice(1));
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        const el = document.getElementById(location.hash.slice(1));
+        if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
   }, [location]);
 
   return (
     <div className="App">
-      {/* Age Gate */}
       <AnimatePresence>
         {!ageVerified && <AgeGate onVerify={handleAgeVerify} />}
       </AnimatePresence>
 
-      {/* Main Site */}
       {ageVerified && (
-        <>
-          {/* Grain Overlay */}
-          <div className="grain-overlay" aria-hidden="true" />
-
-          <Routes>
-            {/* Home Page */}
-            <Route path="/" element={
-              <>
-                <Navigation isScrolled={isScrolled} />
-                <main>
-                  <HeroSection />
-                  <AboutSection />
-                  <WinesSection />
-                  <TerroirSection />
-                  <TradeSection />
-                  <ContactSection />
-                </main>
-                <Footer />
-              </>
-            } />
-
-            {/* Wine Detail Pages */}
-            <Route path="/wines/:wineSlug" element={<WineDetailPage />} />
-          </Routes>
-        </>
+        <Routes>
+          <Route path="/" element={<HomePage isScrolled={isScrolled} />} />
+          <Route path="/wines/:wineSlug" element={<WineDetailPage />} />
+        </Routes>
       )}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 
