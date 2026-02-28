@@ -107,7 +107,6 @@ Perfect for those who appreciate a Chardonnay that balances richness with refres
   },
   merlot: {
     name: "Merlot",
-    year: "2022",
     tagline: "Smooth. Approachable. Quietly Complex.",
     heroImage: "https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?w=800&q=80",
