@@ -57,7 +57,6 @@ This wine represents the pinnacle of our red wine portfolio, showcasing the dept
   },
   rose: {
     name: "Rosé",
-    year: "2024",
     tagline: "Vibrant. Elegant. Australian Summer.",
     heroImage: "https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
