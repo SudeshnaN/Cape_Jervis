@@ -371,7 +371,7 @@ export const WineDetailPage = () => {
       <section className="py-32 md:py-48">
         <div className="max-w-[1600px] mx-auto px-8 md:px-16">
           <div className="grid lg:grid-cols-2 gap-24 lg:gap-32">
-            {/* Technical Details */}
+            {/* Varietal Character */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -380,22 +380,22 @@ export const WineDetailPage = () => {
             >
               <div className="w-12 h-[1px] bg-[#1A1A1A]/20 mb-8" />
               <p className="text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/40 mb-4">03</p>
-              <h2 className="text-serif text-3xl md:text-4xl text-[#1A1A1A] font-light mb-16">Technical Details</h2>
+              <h2 className="text-serif text-3xl md:text-4xl text-[#1A1A1A] font-light mb-16">Varietal Character</h2>
 
               <div className="space-y-0">
-                {Object.entries(wine.details).map(([key, value], index) => (
+                {Object.entries(wine.characteristics).map(([key, value], index) => (
                   <motion.div
                     key={key}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex justify-between items-baseline py-6 border-b border-[#1A1A1A]/10"
+                    className="py-6 border-b border-[#1A1A1A]/10"
                   >
-                    <span className="text-[#1A1A1A]/50 text-sm uppercase tracking-[0.1em]">
-                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                    <span className="text-[#1A1A1A]/40 text-[10px] uppercase tracking-[0.15em] block mb-3">
+                      {key === 'varietal' ? 'The Grape' : key === 'philosophy' ? 'Our Approach' : key === 'expression' ? 'Terroir Expression' : 'Perfect For'}
                     </span>
-                    <span className="text-serif text-2xl text-[#1A1A1A]">{value}</span>
+                    <p className="text-[#1A1A1A]/80 text-base leading-relaxed font-light">{value}</p>
                   </motion.div>
                 ))}
               </div>
