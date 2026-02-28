@@ -11,15 +11,24 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   
   useEffect(() => {
+    // Stop Lenis temporarily
+    if (window.lenisInstance) {
+      window.lenisInstance.stop();
+    }
+    
     // Force scroll to top immediately
     document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     
-    // Reset scroll behavior after a brief delay
+    // Reset scroll behavior and restart Lenis after a brief delay
     const timer = setTimeout(() => {
       document.documentElement.style.scrollBehavior = '';
+      if (window.lenisInstance) {
+        window.lenisInstance.start();
+        window.lenisInstance.scrollTo(0, { immediate: true });
+      }
     }, 100);
     
     return () => clearTimeout(timer);
