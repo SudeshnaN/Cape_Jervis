@@ -378,7 +378,6 @@ const CollectionSection = () => {
     {
       name: "Cabernet Sauvignon",
       slug: "cabernet-sauvignon",
-      year: "2021",
       description: "Blackcurrant, cassis, elegant structure",
       image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80",
     },
