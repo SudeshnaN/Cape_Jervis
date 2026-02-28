@@ -213,17 +213,6 @@ export const WineDetailPage = () => {
           <div className="max-w-[1600px] mx-auto px-8 md:px-16 w-full">
             <div className="grid lg:grid-cols-2 gap-12 items-end">
               <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.3 }}
-                  className="mb-6"
-                >
-                  <span className="inline-block px-4 py-2 border border-white/30 text-white/80 text-[10px] uppercase tracking-[0.3em]">
-                    {wine.year} Vintage
-                  </span>
-                </motion.div>
-                
                 <motion.h1 
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
