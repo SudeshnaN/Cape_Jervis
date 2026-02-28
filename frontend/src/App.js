@@ -770,6 +770,7 @@ const HomePage = ({ isScrolled }) => {
       <main>
         <HeroSection />
         <StorySection />
+        <VideoSection />
         <CollectionSection />
         <TerroirSection />
         <TradeSection />
