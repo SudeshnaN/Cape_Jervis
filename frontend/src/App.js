@@ -384,7 +384,6 @@ const CollectionSection = () => {
     {
       name: "Rosé",
       slug: "rose",
-      year: "2024",
       description: "Fresh strawberry, zesty lime, dry finish",
       image: "https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?w=800&q=80",
     },
