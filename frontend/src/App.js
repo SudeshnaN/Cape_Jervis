@@ -824,13 +824,19 @@ function AppContent() {
       smoothWheel: true,
     });
 
+    // Store lenis instance globally so ScrollToTop can access it
+    window.lenisInstance = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => {
+      window.lenisInstance = null;
+      lenis.destroy();
+    };
   }, [ageVerified]);
 
   useEffect(() => {
