@@ -236,7 +236,7 @@ export const WineDetailPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
+                transition={{ duration: 1, delay: 0.7 }}
                 className="hidden lg:flex justify-end gap-16"
               >
                 <div className="text-right">
