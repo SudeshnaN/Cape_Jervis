@@ -201,7 +201,7 @@ const HeroSection = () => {
               className="text-serif text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] text-white font-light tracking-tight leading-[0.9]"
               data-testid="hero-title"
             >
-              Cape<br />Jervis
+              Cape Jervis
             </motion.h1>
 
             <motion.p
@@ -211,7 +211,7 @@ const HeroSection = () => {
               className="text-white/50 text-sm md:text-base tracking-[0.15em] mt-8 font-light"
               data-testid="hero-subtitle"
             >
-              WINES SHAPED BY COAST, CLIMATE & CLARITY
+              WHISPERS OF THE OUTBACK
             </motion.p>
           </div>
         </div>
