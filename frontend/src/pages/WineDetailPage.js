@@ -82,7 +82,6 @@ Hand-selected by our winemaker, it delivers both intensity and complexity of fla
   },
   chardonnay: {
     name: "Chardonnay",
-    year: "2023",
     tagline: "Fresh. Lively. Effortlessly Balanced.",
     heroImage: "https://images.unsplash.com/photo-1599113656124-b96bf21e30d3?w=1920&q=80",
     bottleImage: "https://images.unsplash.com/photo-1569919659476-f0852f9fcc25?w=800&q=80",
