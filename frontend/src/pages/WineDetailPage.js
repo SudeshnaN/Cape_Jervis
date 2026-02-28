@@ -225,7 +225,7 @@ export const WineDetailPage = () => {
                 <motion.p 
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.6 }}
+                  transition={{ duration: 1, delay: 0.5 }}
                   className="text-white/70 text-lg md:text-xl mt-6 font-light tracking-wide"
                 >
                   {wine.tagline}
