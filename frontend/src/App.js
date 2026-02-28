@@ -852,6 +852,7 @@ function AppContent() {
 
   return (
     <div className="App">
+      <ScrollToTop />
       <AnimatePresence>
         {!ageVerified && <AgeGate onVerify={handleAgeVerify} />}
       </AnimatePresence>
