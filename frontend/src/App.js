@@ -372,7 +372,6 @@ const CollectionSection = () => {
     {
       name: "Shiraz",
       slug: "shiraz",
-      year: "2022",
       description: "Silky tannins, ripe fruit, smooth texture",
       image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
     },
