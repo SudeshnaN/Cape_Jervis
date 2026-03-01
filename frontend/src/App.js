@@ -580,28 +580,28 @@ const TerroirSection = () => {
 // Trade Section
 const TradeSection = () => {
   return (
-    <section id="trade" className="bg-[#F5F3F0] py-32 md:py-48" data-testid="trade-section">
-      <div className="max-w-[1800px] mx-auto px-8 md:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+    <section id="trade" className="bg-[#F5F3F0] py-20 md:py-32 lg:py-48" data-testid="trade-section">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-32 items-center">
           {/* Text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-8">Partnership</span>
-            <h2 className="text-serif text-5xl md:text-6xl text-[#1A1A1A] font-light leading-[1.1] mb-8">
+            <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-6 md:mb-8">Partnership</span>
+            <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-light leading-[1.1] mb-6 md:mb-8">
               Global<br />Distribution
             </h2>
-            <p className="text-[#1A1A1A]/60 text-lg font-light leading-relaxed mb-8">
+            <p className="text-[#1A1A1A]/60 text-base md:text-lg font-light leading-relaxed mb-8">
               Cape Jervis Wine is positioned for international distribution and export. 
               We work with distributors, hospitality buyers, and trade partners who value 
               consistency, integrity, and long-term collaboration.
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-4 px-8 py-4 bg-[#1A1A1A] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#8B7355] transition-colors group"
+              className="inline-flex items-center gap-4 px-6 md:px-8 py-4 bg-[#1A1A1A] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#8B7355] transition-colors group"
               data-testid="trade-cta"
             >
               Trade Enquiries
@@ -611,9 +611,9 @@ const TradeSection = () => {
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
