@@ -524,9 +524,9 @@ const TerroirSection = () => {
         <img
           src={images.terroir}
           alt="Vineyard"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-20 md:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 md:via-[#0A0A0A]/80 to-[#0A0A0A]/80 md:to-transparent" />
       </motion.div>
 
       {/* Content */}
