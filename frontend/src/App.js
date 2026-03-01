@@ -580,8 +580,10 @@ const TerroirSection = () => {
 // Trade Section
 const TradeSection = () => {
   return (
-    <section id="trade" className="bg-[#F5F3F0] py-20 md:py-32 lg:py-48" data-testid="trade-section">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-16">
+    <section id="trade" className="relative bg-[#F5F3F0] py-20 md:py-32 lg:py-48" data-testid="trade-section">
+      {/* Solid background to prevent bleed-through */}
+      <div className="absolute inset-0 bg-[#F5F3F0]" />
+      <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-32 items-center">
           {/* Text */}
           <motion.div
@@ -589,7 +591,6 @@ const TradeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="relative z-10"
           >
             <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-6 md:mb-8">Partnership</span>
             <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-light leading-[1.1] mb-6 md:mb-8">
