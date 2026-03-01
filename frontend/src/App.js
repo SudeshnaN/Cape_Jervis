@@ -589,6 +589,7 @@ const TradeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
+            className="relative z-10"
           >
             <span className="text-[#8B7355] text-[10px] uppercase tracking-[0.3em] block mb-6 md:mb-8">Partnership</span>
             <h2 className="text-serif text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-light leading-[1.1] mb-6 md:mb-8">
@@ -609,13 +610,13 @@ const TradeSection = () => {
             </a>
           </motion.div>
 
-          {/* Image */}
+          {/* Image - Hidden on mobile, visible on lg */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="aspect-[4/3] overflow-hidden">
               <img
