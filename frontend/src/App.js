@@ -214,17 +214,6 @@ const HeroSection = () => {
         {/* Main Title */}
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
-              className="mb-8"
-            >
-              <span className="text-[#C9A96E] text-[10px] uppercase tracking-[0.4em]">
-                Est. South Australia
-              </span>
-            </motion.div>
-            
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
