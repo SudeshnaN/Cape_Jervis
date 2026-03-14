@@ -204,9 +204,9 @@ const HeroSection = () => {
         <img
           src={images.hero}
           alt="Cape Jervis Wine"
-          className="w-full h-full object-cover object-[80%_bottom] sm:object-[70%_center] md:object-center"
+          className="w-full h-full object-cover object-[85%_100%] sm:object-[75%_center] md:object-center scale-[1.2] sm:scale-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/30 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/50 via-[#0A0A0A]/20 to-[#0A0A0A]" />
       </motion.div>
 
       {/* Content */}
