@@ -267,33 +267,38 @@ const HeroSection = () => {
 // Vineyard Video Section - Cinematic transition between Hero and Story
 const VineyardVideoSection = () => {
   return (
-    <section className="relative h-[50vh] md:h-[70vh] overflow-hidden bg-[#0A0A0A]">
-      {/* Video Background - Using a stock vineyard video */}
+    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-[#0A0A0A]">
+      {/* Video Background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        poster="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80"
+        className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-vineyard-33688-large.mp4" type="video/mp4" />
+        <source src="https://cdn.pixabay.com/video/2020/07/30/45913-447087782_large.mp4" type="video/mp4" />
+        <source src="https://cdn.pixabay.com/video/2019/06/07/24222-341708498_large.mp4" type="video/mp4" />
       </video>
       
-      {/* Gradient Overlays */}
+      {/* Gradient Overlays for smooth transitions */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
       
-      {/* Optional subtle text */}
+      {/* Centered text overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
-          className="text-white/30 text-[10px] md:text-xs uppercase tracking-[0.4em]"
+          className="text-center"
         >
-          South Australia
-        </motion.p>
+          <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.4em] mb-4">
+            From the Heart of
+          </p>
+          <p className="text-serif text-3xl md:text-5xl text-white/80 font-light italic">
+            South Australia
+          </p>
+        </motion.div>
       </div>
     </section>
   );
