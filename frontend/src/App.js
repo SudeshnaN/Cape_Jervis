@@ -11,27 +11,14 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   
   useEffect(() => {
-    // Stop Lenis temporarily
+    // Use Lenis scrollTo while it's still active — immediate: true bypasses animation
     if (window.lenisInstance) {
-      window.lenisInstance.stop();
+      window.lenisInstance.scrollTo(0, { immediate: true, force: true });
     }
-    
-    // Force scroll to top immediately
-    document.documentElement.style.scrollBehavior = 'auto';
+    // Also force native scroll as a fallback
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-    
-    // Reset scroll behavior and restart Lenis after a brief delay
-    const timer = setTimeout(() => {
-      document.documentElement.style.scrollBehavior = '';
-      if (window.lenisInstance) {
-        window.lenisInstance.start();
-        window.lenisInstance.scrollTo(0, { immediate: true });
-      }
-    }, 100);
-    
-    return () => clearTimeout(timer);
   }, [pathname]);
   
   return null;
@@ -267,8 +254,7 @@ const HeroSection = () => {
 // Vineyard Video Section - Cinematic transition between Hero and Story
 const VineyardVideoSection = () => {
   return (
-    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-[#0A0A0A]">
-      {/* Video Background - will use AI generated vineyard video */}
+    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-[#0A0A0A]" data-testid="vineyard-video-section">
       <video
         autoPlay
         loop
@@ -276,35 +262,11 @@ const VineyardVideoSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src="/vineyard-walk.mp4" type="video/mp4" />
+        <source src="/vineyard-walk-enhanced.mp4" type="video/mp4" />
       </video>
       
-      {/* Fallback background image while video loads or if not available */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1920&q=80')" }}
-      />
-      
       {/* Gradient Overlays for smooth transitions */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/30 to-[#0A0A0A]" />
-      
-      {/* Centered text overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5 }}
-          className="text-center"
-        >
-          <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.4em] mb-4">
-            From the Heart of
-          </p>
-          <p className="text-serif text-3xl md:text-5xl text-white/80 font-light italic">
-            South Australia
-          </p>
-        </motion.div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/80" />
     </section>
   );
 };

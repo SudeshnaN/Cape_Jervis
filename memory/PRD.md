@@ -117,12 +117,18 @@ Create a premium, modern wine brand website for Cape Jervis Wine — Australia. 
 - [ ] Multi-language support
 - [ ] Analytics integration
 
+## Changelog
+**March 25, 2026**
+- Integrated enhanced vineyard walk video (1920x1080, H264) into homepage after hero section
+- Removed "From the Heart of South Australia" text overlay and fallback image from video section
+- Fixed scroll-to-top bug on wine detail page navigation (properly interfacing with Lenis smooth scroll)
+- Lightened video section gradient overlay for better visibility
+
 ## Next Tasks
 1. Add e-commerce functionality when business is ready
 2. Connect contact form to actual email service
 3. Set up newsletter with mailing provider
-4. Add wine detail/individual pages
-5. Implement trade partner portal
+4. Implement trade partner portal
 
 ## Design System
 - **Primary**: Chalk (#F9F9F7), Charcoal (#1A1A1A)

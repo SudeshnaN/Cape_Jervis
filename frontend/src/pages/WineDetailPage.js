@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -153,23 +153,6 @@ export const WineDetailPage = () => {
   const currentIndex = wineOrder.indexOf(wineSlug);
   const prevWine = currentIndex > 0 ? wineOrder[currentIndex - 1] : null;
   const nextWine = currentIndex < wineOrder.length - 1 ? wineOrder[currentIndex + 1] : null;
-
-  // Force scroll to top on mount and route change
-  useLayoutEffect(() => {
-    // Immediately set scroll position before paint
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    window.scrollTo(0, 0);
-  }, [wineSlug]);
-
-  useEffect(() => {
-    // Double-ensure after render
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      document.documentElement.scrollTop = 0;
-    }, 50);
-    return () => clearTimeout(timer);
-  }, [wineSlug]);
 
   if (!wine) {
     return (
