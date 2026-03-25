@@ -11,7 +11,8 @@ def generate_vineyard_video():
     """Generate vineyard drone shot video with wine pouring"""
     video_gen = OpenAIVideoGeneration(api_key=os.environ['EMERGENT_LLM_KEY'])
     
-    prompt = """Ocean waves gently crashing on rocky coastline at sunset, cinematic slow motion, peaceful nature scene."""
+    prompt = """Elegant woman in flowing white dress walking slowly through vineyard rows at golden hour sunset, 
+    cinematic slow motion drone shot, peaceful countryside atmosphere, professional fashion film style."""
     
     output_path = '/app/frontend/public/vineyard-video.mp4'
     
