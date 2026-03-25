@@ -14,7 +14,7 @@ def generate_vineyard_video():
     prompt = """Elegant woman in flowing white dress walking slowly through vineyard rows at golden hour sunset, 
     cinematic slow motion drone shot, peaceful countryside atmosphere, professional fashion film style."""
     
-    output_path = '/app/frontend/public/vineyard-video.mp4'
+    output_path = '/app/frontend/public/vineyard-walk.mp4'
     
     print("🎬 Starting video generation with Sora 2...")
     print(f"📝 Prompt: {prompt[:100]}...")
