@@ -268,7 +268,7 @@ const HeroSection = () => {
 const VineyardVideoSection = () => {
   return (
     <section className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-[#0A0A0A]">
-      {/* Video Background */}
+      {/* Video Background - will use AI generated vineyard video */}
       <video
         autoPlay
         loop
@@ -276,12 +276,17 @@ const VineyardVideoSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src="https://cdn.pixabay.com/video/2020/07/30/45913-447087782_large.mp4" type="video/mp4" />
-        <source src="https://cdn.pixabay.com/video/2019/06/07/24222-341708498_large.mp4" type="video/mp4" />
+        <source src="/vineyard-walk.mp4" type="video/mp4" />
       </video>
       
+      {/* Fallback background image while video loads or if not available */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1920&q=80')" }}
+      />
+      
       {/* Gradient Overlays for smooth transitions */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/30 to-[#0A0A0A]" />
       
       {/* Centered text overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
