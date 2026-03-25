@@ -264,6 +264,41 @@ const HeroSection = () => {
   );
 };
 
+// Vineyard Video Section - Cinematic transition between Hero and Story
+const VineyardVideoSection = () => {
+  return (
+    <section className="relative h-[50vh] md:h-[70vh] overflow-hidden bg-[#0A0A0A]">
+      {/* Video Background - Using a stock vineyard video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        poster="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&q=80"
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-vineyard-33688-large.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
+      
+      {/* Optional subtle text */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="text-white/30 text-[10px] md:text-xs uppercase tracking-[0.4em]"
+        >
+          South Australia
+        </motion.p>
+      </div>
+    </section>
+  );
+};
+
 // Story Section - Editorial
 const StorySection = () => {
   return (
