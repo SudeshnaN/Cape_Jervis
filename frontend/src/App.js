@@ -785,6 +785,7 @@ const HomePage = ({ isScrolled }) => {
       <Navigation isScrolled={isScrolled} />
       <main>
         <HeroSection />
+        <VineyardVideoSection />
         <StorySection />
         <VideoSection />
         <CollectionSection />
