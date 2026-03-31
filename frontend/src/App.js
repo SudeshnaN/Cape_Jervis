@@ -251,26 +251,6 @@ const HeroSection = () => {
   );
 };
 
-// Vineyard Video Section - Cinematic transition between Hero and Story
-const VineyardVideoSection = () => {
-  return (
-    <section className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-[#0A0A0A]" data-testid="vineyard-video-section">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover scale-105"
-      >
-        <source src="/vineyard-walk-enhanced.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Gradient Overlays for smooth transitions */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/80" />
-    </section>
-  );
-};
-
 // Story Section - Editorial
 const StorySection = () => {
   return (
@@ -792,7 +772,6 @@ const HomePage = ({ isScrolled }) => {
       <Navigation isScrolled={isScrolled} />
       <main>
         <HeroSection />
-        <VineyardVideoSection />
         <StorySection />
         <VideoSection />
         <CollectionSection />
